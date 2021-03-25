@@ -9,7 +9,14 @@ buildscript {
                 password(rootProject.hasProperty('repoPass') ? rootProject['repoPass'] : 'cuba123')
             }
         }
-        
+
+        maven {
+            url 'https://repo.cuba-platform.com/content/groups/premium'
+            credentials {
+                username("${rootProject['premiumRepoUser']}")
+                password("${rootProject['premiumRepoPass']}")
+            }
+        }
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
@@ -40,6 +47,7 @@ dependencies {
     appComponent('com.haulmont.addon.helium:helium-global:0.3.1')
     appComponent("com.haulmont.reports:reports-global:$cubaVersion")
     appComponent("com.haulmont.charts:charts-global:$cubaVersion")
+    appComponent('com.haulmont.addon.bproc:bproc-global:1.2.0')
 }
 
 def hsql = 'org.hsqldb:hsqldb:2.4.1'

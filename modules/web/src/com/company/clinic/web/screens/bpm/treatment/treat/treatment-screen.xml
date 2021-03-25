@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://treatmentScreen.caption"
+        messagesPack="com.company.clinic.web.screens.bpm.treatment.treat">
+    <data>
+        <collection id="visitsDc" class="com.company.clinic.entity.Visit">
+            <view extends="visit-with-owner-view"/>
+            <loader id="visitsDl">
+                <query>
+                    <![CDATA[select e from clinic_Visit e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <actions>
+        <action id="complete" caption="msg://complete" icon="CHECK"/>
+        <action id="question" caption="msg://has.questions" icon="COMMENT"/>
+    </actions>
+    <layout>
+        <form>
+            <column width="400px">
+                <lookupField id="visit" caption="msg://visit" editable="false"/>
+                <textArea id="description" caption="msg://description" editable="false"/>
+                <textArea id="question" caption="msg://question"/>
+                <buttonsPanel>
+                    <button id="completeBtn" action="complete"/>
+                    <button id="questionsBtn" action="question"/>
+                </buttonsPanel>
+            </column>
+        </form>
+    </layout>
+</window>

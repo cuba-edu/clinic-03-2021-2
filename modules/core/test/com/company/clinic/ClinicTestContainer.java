@@ -15,7 +15,8 @@ public class ClinicTestContainer extends TestContainer {
                 "com.haulmont.cuba",
                 "com.haulmont.addon.helium",
                 "com.haulmont.reports",
-                "com.haulmont.charts");
+                "com.haulmont.charts",
+                "com.haulmont.addon.bproc");
         appPropertiesFiles = Arrays.asList(
                 // List the files defined in your web.xml
                 // in appPropertiesConfig context parameter of the core module

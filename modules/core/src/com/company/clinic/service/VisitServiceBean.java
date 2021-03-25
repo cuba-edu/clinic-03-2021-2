@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Service(VisitService.NAME)
 public class VisitServiceBean implements VisitService {
@@ -40,5 +41,12 @@ public class VisitServiceBean implements VisitService {
                 .parameter("userId", user.getId())
                 .optional()
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public void finishTreatment(Visit visit) {
+        String description = visit.getDescription();
+        visit.setDescription(description + "\nFinished at "+ LocalDateTime.now());
+        dataManager.commit(visit);
     }
 }

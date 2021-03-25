@@ -24,7 +24,12 @@
                            categoryField="name"
                            height="200px">
             <chart:graphs>
-                <chart:graph type="COLUMN" valueField="price"/>
+                <chart:graph type="COLUMN"
+                             valueField="price"
+                             colorField="color"
+                             fillAlphas="1"
+                             lineAlpha="0"
+                />
             </chart:graphs>
         </chart:serialChart>
 

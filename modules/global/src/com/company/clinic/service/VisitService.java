@@ -13,4 +13,6 @@ public interface VisitService {
 
     Veterinarian findVetByUser(User user);
 
+    void finishTreatment(Visit visit);
+
 }

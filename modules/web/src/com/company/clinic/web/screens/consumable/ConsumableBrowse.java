@@ -1,5 +1,6 @@
 package com.company.clinic.web.screens.consumable;
 
+import com.haulmont.charts.gui.amcharts.model.Color;
 import com.haulmont.charts.gui.components.charts.SerialChart;
 import com.haulmont.charts.gui.data.DataItem;
 import com.haulmont.charts.gui.data.ListDataProvider;
@@ -34,7 +35,10 @@ public class ConsumableBrowse extends StandardLookup<Consumable> {
     public void onConsumablesDcCollectionChange(CollectionContainer.CollectionChangeEvent<Consumable> event) {
 
         List<DataItem> items = event.getSource().getItems().stream()
-                .map(c -> MapDataItem.of("name", c.getTitle(), "price", c.getPrice()))
+                .map(c -> MapDataItem.of("name", c.getTitle(),
+                        "price", c.getPrice(),
+                        "color", Color.ORANGE
+                ))
                 .collect(Collectors.toList());
 
         consumablePricesChart.setDataProvider(new ListDataProvider(items));
