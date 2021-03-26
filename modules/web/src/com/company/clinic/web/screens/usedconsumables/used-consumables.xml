@@ -8,8 +8,9 @@
             <loader id="consumablesDl"/>
         </collection>
     </data>
-    <layout>
-        <dataGrid id="consumablesTable" height="100%" width="100%"
+    <layout expand="consumablesTable">
+        <vbox id="sliderBox" width="100%"/>
+        <dataGrid id="consumablesTable" width="100%"
                   dataContainer="consumablesDc">
             <columns>
                 <column id="title" property="title"/>

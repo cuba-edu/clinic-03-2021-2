@@ -34,4 +34,11 @@
     <module name="web-toolkit" dependsOn="web">
         <artifact name="petclinic-web-toolkit"/>
     </module>
+    <module name="portal" dependsOn="global" blocks="portal">
+        <artifact name="petclinic-portal" appJar="true"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/company/clinic/portal-security-spring.xml com/company/clinic/portal-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig" value="+com/company/clinic/portal-dispatcher-spring.xml"/>
+        <property name="cuba.mainMessagePack" value="+com.company.clinic.portal"/>
+    </module>
 </app-component>
